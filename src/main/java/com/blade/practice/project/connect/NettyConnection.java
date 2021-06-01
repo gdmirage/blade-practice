@@ -4,7 +4,7 @@ package com.blade.practice.project.connect;
  * TODO:
  *
  * @author blade
- * 2021/5/30 12:09
+ * 2021/6/1 10:34
  */
-public interface ConnectionHolder {
+public class NettyConnection extends Connection{
 }
