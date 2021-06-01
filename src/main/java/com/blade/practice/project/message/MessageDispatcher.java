@@ -2,6 +2,7 @@ package com.blade.practice.project.message;
 
 import com.blade.practice.project.codec.Packet;
 import com.blade.practice.project.connect.Connection;
+import com.blade.practice.project.handler.MessageHandler;
 import com.blade.practice.project.protocol.Command;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -2,25 +2,22 @@ package com.blade.practice.project.handler;
 
 import com.blade.practice.project.codec.Packet;
 import com.blade.practice.project.connect.Connection;
-import com.blade.practice.project.connect.ConnectionManager;
-import com.blade.practice.project.message.MessageDispatcher;
-import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * TODO:
  *
  * @author blade
- * 2021/5/30 9:36
+ * 2021/6/1 21:38
  */
-public class ServerChannelHandler implements MessageHandler {
-
-    public ServerChannelHandler(boolean security, ConnectionManager connectionManager, MessageDispatcher messageDispatcher) {
-    }
-
+public class GatewayPushHandler implements MessageHandler{
+    private static final Logger LOGGER = LoggerFactory.getLogger(GatewayPushHandler.class);
     @Override
     public void handle(Packet packet, Connection connection) {
-
+        connection.send(packet);
+        LOGGER.info("push to gateway finish, {}", connection);
     }
 
     @Override

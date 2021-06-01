@@ -3,8 +3,10 @@ package com.blade.practice.project.server;
 import com.blade.practice.project.client.Listener;
 import com.blade.practice.project.connect.ConnectionManager;
 import com.blade.practice.project.connect.ServerConnectionManager;
+import com.blade.practice.project.handler.HeartbeatHandler;
 import com.blade.practice.project.handler.ServerChannelHandler;
 import com.blade.practice.project.message.MessageDispatcher;
+import com.blade.practice.project.protocol.Command;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelOption;
@@ -48,8 +50,7 @@ public final class ConnectionServer extends NettyTcpServer {
     public void init() {
         super.init();
         this.connectionManager.init();
-//        this.messageDispatcher.register(Command.HEARTBEAT, null);
-//        this.messageDispatcher.register(Command.HEARTBEAT, HeartBeatHandler::new);
+        this.messageDispatcher.register(Command.HEARTBEAT, HeartbeatHandler::new);
     }
 
     @Override
